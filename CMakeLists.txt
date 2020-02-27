@@ -1,0 +1,14 @@
+cmake_minimum_required(VERSION 3.5)
+
+project(MPI LANGUAGES CXX)
+
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+
+find_package(MPI REQUIRED)
+message(STATUS "Run: ${MPIEXEC} ${MPIEXEC_NUMPROC_FLAG} ${MPIEXEC_MAX_NUMPROCS} ${MPIEXEC_PREFLAGS} EXECUTABLE ${MPIEXEC_POSTFLAGS} ARGS")
+
+
+add_executable(MPI main.cpp)
+target_link_libraries(MPI PUBLIC MPI::MPI_CXX)
